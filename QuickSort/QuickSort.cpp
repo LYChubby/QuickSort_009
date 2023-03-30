@@ -40,3 +40,55 @@ void swap(int x, int y) {
 	arr[y] = temp;
 }
 
+void q_sort(int low, int high) {
+
+	int pivot, i, j;
+	if (low > high) {											// Langkah 1
+		return;
+
+		// Partition The List Into Two Parts :
+		// One Containing Elements Greather Than Pivot
+		// Outher Conntainning Element Greather Than Pivot
+
+		pivot = arr[low];										// Langkah 2
+
+		i = low + 1;											// Langkah 3
+		j = high;												// Langkah 4
+
+
+		while (i <= j) {										// Langkah 10
+
+			// Search For an Element Greater Than Pivot
+			while ((arr[i] <= pivot) && (i <= high)) {			// Langkah 5
+
+				i++;											// Langkah 6
+				cmp_count++;
+			}
+			cmp_count++;
+			// Search For an Element Less Than or Equal to Pivot
+			while ((arr[j] > pivot) && (j >= low)) {			// Langkah 7
+
+				j--;											// Langkah 8
+				cmp_count++;
+			}
+			cmp_count++;
+
+																// Langkah 9
+			if (i < j) { // If The Greater Element Is On The Left of The Element
+
+				// Swap The Element at Index i With The Element at Index j
+				swap(i, j);
+				move_count++;
+			}
+		}
+		// j Now Containt The Index of The Last Element In The Sorted List
+		if (low < j) {											// Langkah 11
+
+			// Move The Pivot To Its Correct Posisition In The List
+			swap(low, j);
+			move_count++;
+		}
+		// Sort The List On The Left of Pivot Using Quick Sort
+		q_sort(low, j - 1);										// Langkah 12
+	}
+}
