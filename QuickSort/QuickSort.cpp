@@ -91,4 +91,22 @@ void q_sort(int low, int high) {
 		// Sort The List On The Left of Pivot Using Quick Sort
 		q_sort(low, j - 1);										// Langkah 12
 	}
+
+	// Sort The List On The Right of Pivot Using QUick Sort
+	q_sort(j + 1, high);										// Langkah 13
+
+}
+
+void display() {
+	cout << "\n-------------" << endl;
+	cout << "-Sorted Array-" << endl;
+	cout << "--------------" << endl;
+
+	for (int i = 0; i < n; i++) {
+
+		cout << arr[i] << " ";
+	}
+
+	cout << "\n\nNumber of Comparison : " << cmp_count << endl;
+	cout << "Number of Data Movements : " << move_count << endl;
 }
