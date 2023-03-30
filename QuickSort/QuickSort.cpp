@@ -43,9 +43,9 @@ void swap(int x, int y) {
 void q_sort(int low, int high) {
 
 	int pivot, i, j;
-	if (low > high) {											// Langkah 1
+	if (low > high) { 											// Langkah 1
 		return;
-
+	}
 		// Partition The List Into Two Parts :
 		// One Containing Elements Greather Than Pivot
 		// Outher Conntainning Element Greather Than Pivot
@@ -90,11 +90,10 @@ void q_sort(int low, int high) {
 		}
 		// Sort The List On The Left of Pivot Using Quick Sort
 		q_sort(low, j - 1);										// Langkah 12
-	}
 
-	// Sort The List On The Right of Pivot Using QUick Sort
-	q_sort(j + 1, high);										// Langkah 13
-
+		// Sort The List On The Right of Pivot Using QUick Sort
+		q_sort(j + 1, high);										// Langkah 13
+	
 }
 
 void display() {
@@ -109,4 +108,15 @@ void display() {
 
 	cout << "\n\nNumber of Comparison : " << cmp_count << endl;
 	cout << "Number of Data Movements : " << move_count << endl;
+}
+
+int main() {
+
+	input();
+	// Sort The Array Using Quick Sort
+	q_sort(0, n - 1);
+	display();
+	system("pause");
+
+	return 0;
 }
